@@ -1,45 +1,166 @@
-
 .wrapper{
-    margin: 5% auto;
+    margin: 3.5% auto;
     display: flex;
     justify-content: center;
     align-content: center;
 }
 
+p{
+    font-family: Roboto;
+    font-style: normal;
+    font-size: 1.5em;
+    line-height: 1.75rem;
+}
+
 .slider {
     display: flex;
-    justify-content: center;
-    align-content: center;
+    justify-content: space-between;
+    align-items: flex-start;
+    flex-wrap: wrap;
     width:35vw;
     height: auto;
-    max-width:1920px;
-    min-width: 650px;
-    /* border: 1px solid red; */
-    box-sizing: border-box;
- 
+    border: 0.1rem solid rgb(0, 0, 0);
+    box-sizing: border-box; 
+    background-color: white;
 }
 
 .slider__slides {
     display: flex;
     width: 600%;
-    height: 80%;
-    /* border: 5px solid yellow; */
+    height: 90%;
     overflow: hidden;
     box-sizing: border-box;
 }
 
 .slide-item{
     flex:100%  0 0;
-  
     width: 100%;
-    border: 3px solid black;
-    max-width: 860px;
-    max-height: 760px;
     object-fit: cover;
+    transition: all 0.6s ease; 
 }
 
 .slide-item img{
     display: block;
     width: 100%;
     height:100%;
+}
+
+.slider__row{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    overflow: hidden;
+    height: 10%;
+    padding: 0 2%;
+    column-gap: 5%;
+}
+
+.slider__text{
+    width: 70%;
+    height: auto;
+    display: flex;
+    align-items: center;
+    overflow: hidden;
+}
+
+.slider__text p{
+    min-width: 100%;
+    height: 100%;
+    transition: 0.5s;
+}
+
+input{
+    display: none;
+}
+
+.slider__pagination{
+    width: 30%;
+    display: flex;
+    justify-content: flex-end;
+    align-items:center;
+    column-gap: 3%;
+}
+
+.slider__pagination label {
+    height: 1.85rem;
+    width: 1.85rem;
+    cursor: pointer;
+    display:inline-flex;
+    justify-content: center;
+    align-items: center;
+    -webkit-tap-highlight-color: transparent;
+}
+
+.slider__pagination label .circle{
+    display: block;
+    height: 0.94rem;
+    width: 0.94rem;
+    border-radius: 50%;
+    border: 0.1rem solid black;
+}
+
+#rb1:checked ~ .wrapper .slider .slider__slides .checked,
+#rb1:checked ~ .wrapper .slider .slider__row .slider__text .checked  {
+    margin-left: 0;
+}
+
+#rb2:checked ~ .wrapper .slider .slider__slides .checked,
+#rb2:checked ~ .wrapper .slider .slider__row .slider__text .checked {
+    margin-left: -100%;
+}
+#rb3:checked ~ .wrapper .slider .slider__slides .checked,
+#rb3:checked ~ .wrapper .slider .slider__row .slider__text .checked {
+    margin-left: -200%;
+}
+#rb4:checked ~ .wrapper .slider .slider__slides .checked,
+#rb4:checked ~ .wrapper .slider .slider__row .slider__text .checked{
+    margin-left: -300%;
+}
+#rb5:checked ~ .wrapper .slider .slider__slides .checked,
+#rb5:checked ~ .wrapper .slider .slider__row .slider__text .checked {
+    margin-left: -400%;
+}
+
+#rb6:checked ~ .wrapper .slider .slider__slides .checked,
+#rb6:checked ~ .wrapper .slider .slider__row .slider__text .checked {
+    margin-left: -500%;
+}
+
+#rb1:checked ~ .wrapper .slider .slider__row .slider__pagination .l1 .circle, 
+#rb2:checked ~ .wrapper .slider .slider__row .slider__pagination .l2 .circle,
+#rb3:checked ~ .wrapper .slider .slider__row .slider__pagination .l3 .circle,
+#rb4:checked ~ .wrapper .slider .slider__row .slider__pagination .l4 .circle,
+#rb5:checked ~ .wrapper .slider .slider__row .slider__pagination .l5 .circle,
+#rb6:checked ~ .wrapper .slider .slider__row .slider__pagination .l6 .circle {
+    background: black;
+}
+
+#rb1:checked ~ .wrapper .slider .slider__row .slider__pagination .l1:hover .circle, 
+#rb2:checked ~ .wrapper .slider .slider__row .slider__pagination .l2:hover .circle,
+#rb3:checked ~ .wrapper .slider .slider__row .slider__pagination .l3:hover .circle,
+#rb4:checked ~ .wrapper .slider .slider__row .slider__pagination .l4:hover .circle,
+#rb5:checked ~ .wrapper .slider .slider__row .slider__pagination .l5:hover .circle,
+#rb6:checked ~ .wrapper .slider .slider__row .slider__pagination .l6:hover .circle {
+    background: #494848;
+}
+
+.slider__pagination label:hover .circle{
+    background:#C1C1C1;
+}
+
+.slider__pagination label:active .circle{
+    background:#BFB599;
+}
+
+
+@media (max-width: 1920px) {
+    .slider{
+        max-width:1920px;
+        min-width: 650px;
+    }
+
+    .slide-item{
+        max-width: 860px;
+        max-height: 760px;
+    }
 }
